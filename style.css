@@ -1,0 +1,8 @@
+html, body {
+    height: 100%;
+}
+
+.mod-result {
+    min-width: 200px;
+    text-align: center;
+}

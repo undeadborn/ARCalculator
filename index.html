@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aspect Ratio Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="d-flex justify-content-center bg-light">
+    <main class="d-flex flex-column align-items-center justify-content-center">
+
+        <h1 class="display-4 mb-5">Aspect Ratio Calculator</h1>
+
+        <div class="p-3 border bg-white">
+            <table class="small">
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td class="text-center">Base Ratio</td>
+                        <td></td>
+                        <td class="text-center">Result Ratio</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">Width</td>
+                        <td><input id="base-width" type="text" class="form-control form-control-sm" maxlength="10"></td>
+                        <td></td>
+                        <td><input id="result-width" type="text" class="form-control form-control-sm" maxlength="10"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <hr>
+                        </td>
+                        <td>=</td>
+                        <td>
+                            <hr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">Height</td>
+                        <td><input id="base-height" type="text" class="form-control form-control-sm" maxlength="10"></td>
+                        <td></td>
+                        <td><input id="result-height" type="text" class="form-control form-control-sm" maxlength="10"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-center p-1">
+                            <hr><span id="message"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button id="reset" type="button" class="btn btn-primary btn-sm m-3">Reset Me</button>
+
+        <div class="table-responsive-sm small bg-white">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="text-center">Width</th>
+                        <th class="text-center">Height</th>
+                        <th class="text-center">Correction--</th>
+                        <th class="text-center">Correction++</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-right">Mod16</th>
+                        <td id="width-16" class="mod-result"></td>
+                        <td id="height-16" class="mod-result"></td>
+                        <td id="correction-min-16" class="mod-result"></td>
+                        <td id="correction-sum-16" class="mod-result"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">Mod8</th>
+                        <td id="width-8" class="mod-result"></td>
+                        <td id="height-8" class="mod-result"></td>
+                        <td id="correction-min-8" class="mod-result"></td>
+                        <td id="correction-sum-8" class="mod-result"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">Mod4</th>
+                        <td id="width-4" class="mod-result"></td>
+                        <td id="height-4" class="mod-result"></td>
+                        <td id="correction-min-4" class="mod-result"></td>
+                        <td id="correction-sum-4" class="mod-result"></td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">Mod2</th>
+                        <td id="width-2" class="mod-result"></td>
+                        <td id="height-2" class="mod-result"></td>
+                        <td id="correction-min-2" class="mod-result"></td>
+                        <td id="correction-sum-2" class="mod-result"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
