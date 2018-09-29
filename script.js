@@ -1,6 +1,6 @@
 "use strict";
 
-(function () {
+(function() {
     // constants
     const BASE_WIDTH = "#base-width";
     const BASE_HEIGHT = "#base-height";
@@ -17,19 +17,25 @@
     resetAll();
 
     // events
-    $(BASE_WIDTH).keyup(() => {
+    $(BASE_WIDTH).keyup(function() {
         if (validate([BASE_WIDTH])) {
             calculateRatio();
         }
     });
-    $(BASE_HEIGHT).keyup(() => {
+    $(BASE_HEIGHT).keyup(function() {
         if (validate([BASE_HEIGHT])) {
             calculateRatio();
         }
     });
-    $(RESULT_WIDTH).keyup(() => doCalculation(RESULT_WIDTH, RESULT_HEIGHT));
-    $(RESULT_HEIGHT).keyup(() => doCalculation(RESULT_HEIGHT, RESULT_WIDTH));
-    $(RESET_BUTTON).click(() => resetAll());
+    $(RESULT_WIDTH).keyup(function() {
+        doCalculation(RESULT_WIDTH, RESULT_HEIGHT);
+    });
+    $(RESULT_HEIGHT).keyup(function() {
+        doCalculation(RESULT_HEIGHT, RESULT_WIDTH);
+    });
+    $(RESET_BUTTON).click(function() {
+        resetAll();
+    });
 
     /* FUNCTIONS */
     function calculateRatio() {
@@ -89,9 +95,11 @@
         var isAllValid = true;
 
         var validations = new Array();
-        inputs.forEach(input => validations[input] = isValid(input));
+        inputs.forEach(function(input) { 
+            validations[input] = isValid(input);
+        });
 
-        Object.keys(validations).forEach(key => {
+        Object.keys(validations).forEach(function(key) {
             if (validations[key] === false) {
                 isAllValid = false;
                 setInvalidInput([key]);
@@ -139,7 +147,7 @@
         var width = $(RESULT_WIDTH).val();
         var height = $(RESULT_HEIGHT).val();
 
-        const checkMod = (size, mod, element) => {
+        const checkMod = function(size, mod, element) {
             if (size % mod == 0) {
                 setValidMod(element + mod);
                 return true;
@@ -150,7 +158,7 @@
             }
         };
 
-        mods.forEach(mod => {
+        mods.forEach(function(mod) {
             var widthValid = checkMod(width, mod, MOD_WIDTH);
             var heightValid = checkMod(height, mod, MOD_HEIGHT);
             if (widthValid && heightValid) {
@@ -180,11 +188,15 @@
     }
 
     function setValidInput(inputs) {
-        inputs.forEach(input => $(input).removeClass('is-invalid'));
+        inputs.forEach(function(input) {
+            $(input).removeClass('is-invalid');
+        });
     }
 
     function setInvalidInput(inputs) {
-        inputs.forEach(input => $(input).addClass('is-invalid'));
+        inputs.forEach(function(input) { 
+            $(input).addClass('is-invalid');
+        });
     }
 
     function setValidMod(element) {
@@ -202,7 +214,7 @@
     }
 
     function resetMods(mods) {
-        mods.forEach(mod => {
+        mods.forEach(function(mod) {
             resetMod(MOD_WIDTH + mod);
             resetMod(MOD_HEIGHT + mod);
             resetMod(MOD_MIN_CORRECTION + mod);
